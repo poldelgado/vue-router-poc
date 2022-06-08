@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h1>
-      All Destinations
+      Todos los Destinos
     </h1>
     <div class="destinations"></div>
     <div v-for="destination in destinations"
@@ -11,7 +11,7 @@
     </router-link>
     <figure>
       <router-link :to="destination.slug">
-        <img :src="requre(`@/assets/${destination.image}`)" :alt="destination.name">
+        <img :src="require(`@/assets/${destination.image}`)" :alt="destination.name">
       </router-link>
     </figure>
 
@@ -35,3 +35,17 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+  .home {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  img {
+    max-width: 200px;
+  }
+  .destinations {
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
