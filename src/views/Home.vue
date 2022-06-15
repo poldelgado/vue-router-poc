@@ -1,51 +1,48 @@
 <template>
   <div class="home">
-    <h1>
-      Todos los Destinos
-    </h1>
+    <h1>Todos los Destinos</h1>
     <div class="destinations"></div>
-    <div v-for="destination in destinations"
-      :key="destination.name">
-    <router-link :to="destination.slug">
-        <h2>{{destination.name}}</h2>
-    </router-link>
-    <figure>
-      <router-link :to="destination.slug">
-        <img :src="require(`@/assets/${destination.image}`)" :alt="destination.name">
+    <div v-for="destination in destinations" :key="destination.name">
+      <router-link :to="{ name: 'DestinationDetails', params: {id:destination.id} }">
+        <h2>{{ destination.name }}</h2>
       </router-link>
-    </figure>
-
-   </div>
+      <figure>
+        <router-link :to="{ name: 'DestinationDetails', params: {id:destination.id} }">
+          <img
+            :src="require(`@/assets/${destination.image}`)"
+            :alt="destination.name"
+          />
+        </router-link>
+      </figure>
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import store from "@/store.js"
+import store from "@/store.js";
 
 export default {
   name: "Home",
-  components: {
-    
-  },
-  data () {
+  components: {},
+  data() {
     return {
-      destinations: store.destinations
+      destinations: store.destinations,
     };
-  }
+  },
 };
 </script>
 
 <style scoped>
-  .home {
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-  img {
-    max-width: 200px;
-  }
-  .destinations {
-    display: flex;
-    justify-content: space-between;
-  }
+.home {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+img {
+  max-width: 200px;
+}
+.destinations {
+  display: flex;
+  justify-content: space-between;
+}
 </style>
