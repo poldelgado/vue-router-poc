@@ -7,8 +7,8 @@
 
 <script>
 import store from "@/store";
-import TheNavigation from '@/components/TheNavigation';
-export default{
+import TheNavigation from "@/components/TheNavigation";
+export default {
   components: {
     TheNavigation,
   },
@@ -17,8 +17,8 @@ export default{
       destinationId: this.$route.params.id,
       destinations: store.destinations,
     };
-  }
-}
+  },
+};
 </script>
 
 <style>
