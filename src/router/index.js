@@ -19,6 +19,17 @@ const routes = [
       import(
         /* webpackChunkName: "DestinationDetails" */ "../views/DestinationDetails"
       ),
+    children: [
+      {
+        path: ":experienceSlug",
+        name: "experienceDetails",
+        props: true,
+        component: () =>
+        import(
+          /* webpackChunkName: "DestinationDetails" */ "../views/ExperienceDetails"
+        ),
+      }
+    ]
   },
 ];
 
